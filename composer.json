@@ -25,7 +25,7 @@
             "ContaoMessengerBundle\\": "src/Resources/contao/modules"
         },
 		"classmap": [
-            "src/Resources/contao/modules",
+            "src/Resources/contao",
             "src/Resources/contao/dca"
 		]
     },
