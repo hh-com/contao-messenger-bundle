@@ -33,7 +33,40 @@ class ModuleMessenger extends \ModuleMessenger
      */
     protected function compile()
     {
-        $this->Template->message = 'Hello Worl xxxxxxxxx d';
+		if (FE_USER_LOGGED_IN !== true) 
+		{
+			die("Please log in!");
+		}
+
+		$user = \Contao\FrontendUser::getInstance();
+
+
+
+
+		$usrDrop = $this->getAllUsersOrFollowers($user, true);
+		var_dump($usrDrop);
+		exit;
+        $this->Template->userDropdown = $this->getAllUsersOrFollowers($user, true);
+	}
+
+
+	public function getAllUsersOrFollowers($currentLoggedin, $allUsers = false)
+	{
+
+		if ($allUsers == false)
+		{
+
+		}
+		else{
+
+			$objMem = \Database::getInstance()
+			->prepare("SELECT * FROM tl_member WHERE id != disabled = ?")
+			->execute( $currentLoggedin-> id, "" )
+			->fetchAllAssoc();
+		}
+
+		return $objMem;
+
 	}
 	
 }

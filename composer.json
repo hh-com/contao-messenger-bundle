@@ -21,11 +21,13 @@
     },
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "": "src/",
+            "ContaoMessengerBundle": "src/Resources/contao/modules"
         },
 		"classmap": [
-            "src/Resources/contao"
-		],
+            "src/Resources/contao",
+            "src/Resources/contao/modules"
+		]
     },
     "extra": {
         "contao-manager-plugin": "ContaoMessengerBundle\\ContaoManagerPlugin"
