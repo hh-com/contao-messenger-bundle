@@ -26,7 +26,8 @@
         },
 		"classmap": [
             "src/Resources/contao",
-            "src/Resources/contao/modules"
+            "src/Resources/contao/modules",
+            "src/Resources/contao/dca"
 		]
     },
     "extra": {

@@ -33,6 +33,9 @@ class ModuleMessenger extends \ModuleMessenger
      */
     protected function compile()
     {
+		echo 222222222222222222222222222222;
+		echo "verwende das andere file -.......";
+		exit;
 		if (FE_USER_LOGGED_IN !== true) 
 		{
 			die("Please log in!");
@@ -44,8 +47,7 @@ class ModuleMessenger extends \ModuleMessenger
 
 
 		$usrDrop = $this->getAllUsersOrFollowers($user, true);
-		var_dump($usrDrop);
-		exit;
+		
         $this->Template->userDropdown = $this->getAllUsersOrFollowers($user, true);
 	}
 
@@ -55,13 +57,18 @@ class ModuleMessenger extends \ModuleMessenger
 
 		if ($allUsers == false)
 		{
-
+			$objMem = \Database::getInstance()
+			->prepare("SELECT * FROM tl_member_follow WHERE id != ? or followThis = ? ")
+			-> limit(50)
+			->execute( $currentLoggedin->id, $currentLoggedin->uniqueID )
+			->fetchAllAssoc();
 		}
 		else{
 
 			$objMem = \Database::getInstance()
-			->prepare("SELECT * FROM tl_member WHERE id != disabled = ?")
-			->execute( $currentLoggedin-> id, "" )
+			->prepare("SELECT * FROM tl_member WHERE id != ? AND disable = ? ")
+			-> limit(50)
+			->execute( $currentLoggedin->id, "" )
 			->fetchAllAssoc();
 		}
 
