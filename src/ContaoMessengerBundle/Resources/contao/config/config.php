@@ -1,6 +1,6 @@
 <?php
 
 
-echo "messenger bundle ";
+    $GLOBALS['FE_MOD']['user']['cmessenger'] = 'ContaoMessengerBundle\ModuleMessenger';
 
 ?>
