@@ -2,7 +2,7 @@
 
 namespace ContaoMessengerBundle;
 
-class ModuleMessenger extends \ModuleMessenger
+class MessengerModule extends \Module
 {
     /**
 	 * Template
@@ -25,15 +25,14 @@ class ModuleMessenger extends \ModuleMessenger
 			return $objTemplate->parse();
 		}
 		return parent::generate();
-	}
-
-	    
+    }
+    
     /**
      * Generates the module.
      */
     protected function compile()
     {
-        $this->Template->message = 'Hello Worl xxxxxxxxx d';
-	}
-	
+        $this->Template->message = 'Hello World';
+    }
+
 }
