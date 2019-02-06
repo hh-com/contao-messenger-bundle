@@ -1,0 +1,30 @@
+{
+    "name":"hh-com/contao-messenger-bundle",
+    "description":"Contao 4 bundle messages between members.",
+    "type":"contao-bundle",
+    "homepage":"http://www.harald-huber.com",
+    "license":"LGPL-3.0-or-later",
+    "authors":[
+        {
+            "name":"Harald Huber",
+            "homepage":"http://www.harald-huber.com",
+            "email":"info@harald-huber.com"
+        }
+    ],
+    "require":{
+        "php": "^7.1",
+        "contao/core-bundle": "^4.6",
+        "symfony/routing": "^3.0 || ^4.0"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ContaoMessengerBundle\\": "src/"
+        }
+    },
+    "extra": {
+        "contao-manager-plugin": "ContaoMessengerBundle\\ContaoManagerPlugin"
+    }
+}
