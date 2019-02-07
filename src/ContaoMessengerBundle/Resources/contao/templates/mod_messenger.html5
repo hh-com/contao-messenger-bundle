@@ -14,13 +14,13 @@
           <div class="headind_srch">
             <button class="btn btn-secondary dropdown-toggle" 
                     type="button" 
-                    id="dropdownMenuButton" 
+                    id="dropdownMenuSelectMember" 
                     data-toggle="dropdown" 
                     aria-haspopup="true" 
                     aria-expanded="false">
-                Schreibe eine Nachricht
+                Schreibe eine Nachricht an
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuSelectMember">
                 <?php foreach ( $this->userDropdown as $member): ?>
                 
                     <a class="dropdown-item" href="#"><?php echo $member['firstname']; ?> <?php echo $member['lastname']; ?></a>
@@ -33,7 +33,7 @@
                 <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="chat_ib">
                   <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                  <p>Test, which is a new approach to have all solutions 
+                  <p>Teeeest, which is a new approach to have all solutions 
                     astrology under one roof.</p>
                 </div>
               </div>
