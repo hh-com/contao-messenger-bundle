@@ -25,7 +25,7 @@
             "": "src/",
 			"classmap": [
 					"src/Resources/contao/"
-		],
+		]
         }
     },
     "extra": {
