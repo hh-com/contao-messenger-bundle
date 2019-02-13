@@ -1,7 +1,8 @@
 <?php 
 
 /**
- * Table tl_messages 
+ * Table tl_messages aa aa fd
+ * sd
  */
 $GLOBALS['TL_DCA']['tl_messages'] = array
 (
@@ -9,62 +10,17 @@ $GLOBALS['TL_DCA']['tl_messages'] = array
 	// Config
 	'config' => array
 	(
-		'dataContainer'               => 'Table',
-		'switchToEdit'                => false,
-		'enableVersioning'            => false,
-		'closed'					  => true,
-	),
-
-	// List
-	'list' => array
-	(
-		'sorting' => array
+		'sql' => array
 		(
-			'mode'                    => 1,
-			'fields'                  => array('tstamp'),
-			'flag'                    => 1,
-			'panelLayout'             => 'filter;search,limit'
-		),
-		'label' => array
-		(
-			'fields'                  => array('tstamp'),
-			'format'                  => '%s',
-			'label_callback'		  => array('tl_pm', 'labelCallback'),
-		),
-		'global_operations' => array
-		(
-			'all' => array
+			'keys' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
-				'href'                => 'act=select',
-				'class'               => 'header_edit_all',
-				'attributes'          => 'onclick="Backend.getScrollOffset();"'
-			)
-		),
-		'operations' => array
-		(
-			'delete' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_pm']['delete'],
-				'href'                => 'act=delete',
-				'icon'                => 'delete.gif',
-				'attributes'          => 'onclick="if (!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\')) return false; Backend.getScrollOffset();"',
-			),
-			'show' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_pm']['show'],
-				'href'                => 'act=show',
-				'icon'                => 'show.gif'
+				'id' => 'primary',
+				'tstamp' => 'index',
+				'sender' => 'index',
+				'recipient' => 'index'
 			)
 		)
 	),
-
-	// Palettes
-	'palettes' => array
-	(
-		'default'                     => 'sender,recipient,tstamp;message;status,senderDeleted,recipientDeleted'
-	),
-
 	// Fields
 	'fields' => array
 	(
@@ -74,7 +30,7 @@ $GLOBALS['TL_DCA']['tl_messages'] = array
 		),
 		'tstamp' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_pm']['tstamp'],
+			'label'                   => &$GLOBALS['TL_LANG']['tl_messages']['tstamp'],
 			'exclude'                 => true,
 			'inputType'               => 'text',
             'eval'                    => array('maxlength'=>10, 'rgxp'=>'date', 'style'=>'" disabled="disabled'),
@@ -82,7 +38,7 @@ $GLOBALS['TL_DCA']['tl_messages'] = array
 		),
 		'sender' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_pm']['sender'],
+			'label'                   => &$GLOBALS['TL_LANG']['tl_messages']['sender'],
 			'exclude'                 => true,
 			'filter'                  => true,
 			'inputType'               => 'text',
@@ -91,7 +47,7 @@ $GLOBALS['TL_DCA']['tl_messages'] = array
 		),
 		'recipient' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_pm']['recipient'],
+			'label'                   => &$GLOBALS['TL_LANG']['tl_messages']['recipient'],
 			'exclude'                 => true,
 			'filter'                  => true,
 			'inputType'               => 'membertext',
@@ -101,7 +57,7 @@ $GLOBALS['TL_DCA']['tl_messages'] = array
 		),
 		'message' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_pm']['message'],
+			'label'                   => &$GLOBALS['TL_LANG']['tl_messages']['message'],
 			'exclude'                 => true,
 			'search'                  => true,
 			'inputType'               => 'textarea',
@@ -109,18 +65,18 @@ $GLOBALS['TL_DCA']['tl_messages'] = array
 		),
 		'status' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_pm']['status'],
+			'label'                   => &$GLOBALS['TL_LANG']['tl_messages']['status'],
 			'exclude'                 => true,
 			'filter'                  => true,
 			'inputType'               => 'select',
-			'options'				  => array(0, 1, 2),
-			'reference'				  => &$GLOBALS['TL_LANG']['tl_pm']['status_options'],
+			'options'				  => array(0, 1, 2, 4),
+			'reference'				  => &$GLOBALS['TL_LANG']['tl_messages']['status_options'],
             'eval'					  => array(),
             'sql'                     => "smallint(5) unsigned NOT NULL default '0'"
 		),
 		'senderDeleted' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_pm']['senderDeleted'],
+			'label'                   => &$GLOBALS['TL_LANG']['tl_messages']['senderDeleted'],
 			'exclude'                 => true,
 			'filter'                  => true,
 			'inputType'               => 'checkbox',
@@ -129,7 +85,7 @@ $GLOBALS['TL_DCA']['tl_messages'] = array
 		),
 		'recipientDeleted' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_pm']['recipientDeleted'],
+			'label'                   => &$GLOBALS['TL_LANG']['tl_messages']['recipientDeleted'],
 			'exclude'                 => true,
 			'filter'                  => true,
 			'inputType'               => 'checkbox',
