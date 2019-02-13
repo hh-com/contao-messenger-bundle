@@ -68,6 +68,10 @@ $GLOBALS['TL_DCA']['tl_messages'] = array
 	// Fields
 	'fields' => array
 	(
+		'id' => array
+		(
+			'sql'                     => "int(10) unsigned NOT NULL auto_increment"
+		),
 		'tstamp' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_pm']['tstamp'],
