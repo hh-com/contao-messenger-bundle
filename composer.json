@@ -25,10 +25,10 @@
             "": "src/"
         },
 		"classmap": [
-					"src/Resources/contao/config/",
-					"src/Resources/contao/dca/",
-					"src/Resources/contao/languages/",
-					"src/Resources/contao/templates/"
+					"src/ContaoMessengerBundle/Resources/contao/config/",
+					"src/ContaoMessengerBundle/Resources/contao/dca/",
+					"src/ContaoMessengerBundle/Resources/contao/languages/",
+					"src/ContaoMessengerBundle/Resources/contao/templates/"
 		]
     },
     "extra": {
