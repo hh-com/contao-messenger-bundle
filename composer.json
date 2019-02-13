@@ -22,7 +22,10 @@
     },
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "": "src/",
+			"classmap": [
+					"src/Resources/contao/"
+		],
         }
     },
     "extra": {
