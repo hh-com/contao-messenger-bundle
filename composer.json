@@ -28,6 +28,7 @@
 					"src/ContaoMessengerBundle/Resources/contao/config/",
 					"src/ContaoMessengerBundle/Resources/contao/dca/",
 					"src/ContaoMessengerBundle/Resources/contao/languages/",
+					"src/ContaoMessengerBundle/Resources/contao/modules/",
 					"src/ContaoMessengerBundle/Resources/contao/templates/"
 		]
     },
