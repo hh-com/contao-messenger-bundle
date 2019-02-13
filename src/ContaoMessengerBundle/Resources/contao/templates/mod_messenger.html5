@@ -1,5 +1,5 @@
 <style>
-    .left{
+    .left {
         border: 1px solid red;
     }
     .right {
