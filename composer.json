@@ -32,6 +32,14 @@
 		]
     },
     "extra": {
-        "contao-manager-plugin": "ContaoMessengerBundle\\ContaoManagerPlugin"
+        "contao-manager-plugin": "ContaoMessengerBundle\\ContaoManagerPlugin",
+        "contao": {
+            "sources": {
+                "": "system/modules/contao-messenger-bundle"
+            },
+            "runonce": [
+                "config/update.php"
+            ]
+        }
     }
 }
