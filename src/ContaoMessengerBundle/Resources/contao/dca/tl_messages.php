@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * Table tl_pm 
+ * Table tl_messages 
  */
 $GLOBALS['TL_DCA']['tl_messages'] = array
 (

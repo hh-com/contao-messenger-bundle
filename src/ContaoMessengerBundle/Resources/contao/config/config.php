@@ -6,7 +6,7 @@ echo 45453;
      */
     $GLOBALS['BE_MOD']['content']['pm'] = array
     (
-        'tables'			=> array('tl_messenger'),
+        'tables'			=> array('tl_messages'),
         'icon'				=> 'system/modules/pm/html/icon.gif',
     );
 
