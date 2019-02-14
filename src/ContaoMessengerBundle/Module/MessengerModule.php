@@ -50,8 +50,6 @@ class MessengerModule extends \Module
 		$this->Template->userDropdown = $usrDrop;
 
 
-		
-		
 
 	}
 

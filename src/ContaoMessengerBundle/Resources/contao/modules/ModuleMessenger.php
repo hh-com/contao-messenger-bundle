@@ -2,7 +2,7 @@
 
 namespace ContaoMessengerBundle;
 
-class ModuleMessenger extends \ModuleMessenger
+class ModuleMessenger extends \Module
 {
     /**
 	 * Template
@@ -35,7 +35,7 @@ class ModuleMessenger extends \ModuleMessenger
     {
 		echo 222222222222222222222222222222;
 		echo "verwende das andere file -.......";
-		exit;
+		
 		if (FE_USER_LOGGED_IN !== true) 
 		{
 			die("Please log in!");
@@ -75,5 +75,53 @@ class ModuleMessenger extends \ModuleMessenger
 		return $objMem;
 
 	}
+
+	
+	public function getAllFollowingsAndFollowersFromArtist($artistArray)
+	{
+
+		$return = array();
+
+		$ursArr = array(
+			'follows' => array(),
+			'following' => array()
+		);
+
+		$iFollowsObj = \Database::getInstance()
+		->prepare("SELECT  m.* FROM tl_member_follow f
+				INNER JOIN tl_member m
+					ON (f.followThis = m.uniqueID )
+			WHERE f.pid = ? "
+			)
+		->execute( $artistArray['id'] );
+
+		$followIngObj = \Database::getInstance()
+		->prepare("SELECT  m.* FROM tl_member_follow f
+				INNER JOIN tl_member m
+					ON (f.pid = m.id )
+			WHERE f.followThis = ? "
+			)
+		->execute( $artistArray['uniqueID']  );
+
+		if ($iFollowsObj->numRows > 0 )
+		{
+			$ursArr['follows'] = $iFollowsObj->fetchAllAssoc();
+		}
+
+		if ($followIngObj->numRows > 0 )
+		{
+			$ursArr['following'] = $followIngObj->fetchAllAssoc();
+		}
+		
+		foreach ( $ursArr['follows'] as $tmp1 )
+			$return[] = $tmp1 ;
+
+		foreach ( $ursArr['following'] as $tmp2 )
+			$return[] = $tmp1 ;
+
+		return $return;
+
+	}
+	
 	
 }
