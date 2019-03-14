@@ -1,0 +1,44 @@
+<?php 
+/**
+ * Template nur einbinden wenn der User eingeloggt ist
+ */
+if (FE_USER_LOGGED_IN === true): ?>
+<script>
+
+jQuery(function ($) {
+
+    setUsrOnline();
+    
+    function setUsrOnline() 
+    {
+        $.ajax({
+            type: "POST",
+            url: "ms/usr",
+            data: {
+                    type: "messenger",
+                    usr: $(this).data('usr')
+            },
+            context: this,
+            success: function(result)
+            {
+                var status = result.status;
+                if (status == true)
+                {
+                    console.log("Eingeloggt - tstamp geändert");
+                }
+                if (status == false)
+                {
+                    console.log("Nicht eingeloggt ");
+                }
+            }
+        });
+
+    }
+
+    
+
+});
+
+</script>
+
+<?php endif; ?>

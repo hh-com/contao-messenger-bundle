@@ -33,22 +33,31 @@ class ModuleMessenger extends \Module
      */
     protected function compile()
     {
-		echo 222222222222222222222222222222;
-		echo "verwende das andere file -.......";
-		
 		if (FE_USER_LOGGED_IN !== true) 
 		{
-			die("Please log in!");
+			echo "Bitte einloggen!!!!";
+			#die("Please log in!");
 		}
 
 		$user = \Contao\FrontendUser::getInstance();
 
+		/* get members  */
+		$artistArray = array( 'id' => $user->id, 'uinqueID' => $user->uniqueID );
+		$usrDrop = $this->getAllFollowingsAndFollowersFromArtist($artistArray);
+		$this->Template->userDropdown = $usrDrop;
+
+	
 
 
-
-		$usrDrop = $this->getAllUsersOrFollowers($user, true);
+		#$usrDrop = $this->getAllUsersOrFollowers($user, true);
 		
-        $this->Template->userDropdown = $this->getAllUsersOrFollowers($user, true);
+        #$this->Template->userDropdown = $this->getAllUsersOrFollowers($user, true);
+	}
+
+
+	public function retriveMessageAndSave($senderId, $recipientId, $message )
+	{
+
 	}
 
 
@@ -117,7 +126,7 @@ class ModuleMessenger extends \Module
 			$return[] = $tmp1 ;
 
 		foreach ( $ursArr['following'] as $tmp2 )
-			$return[] = $tmp1 ;
+			$return[] = $tmp2 ;
 
 		return $return;
 

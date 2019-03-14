@@ -1,0 +1,6 @@
+contao_messenger.controller.contaomessenger:
+    path: /ms/{action}
+    defaults:
+        _scope: frontend
+        _token_check: false
+        _controller: 'ContaoMessengerBundle\Controller\MessengerController'
